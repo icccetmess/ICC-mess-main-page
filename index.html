@@ -90,7 +90,7 @@
             text-decoration: none;
             color: var(--text-dark);
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.95rem; /* Left untouched */
             text-transform: uppercase;
             letter-spacing: 0.5px;
             position: relative; 
@@ -123,7 +123,7 @@
             .nav-brand img { height: 35px; width: 35px; }
             .top-nav ul { gap: 8px; }
             .top-nav ul a { 
-                font-size: 0.55rem; 
+                font-size: 0.55rem; /* Left untouched */
                 white-space: nowrap; 
             }
         }
@@ -152,8 +152,8 @@
         }
 
         .logo {
-            width: 140px;
-            height: 140px;
+            width: 100px; /* SHRUNK LOGO */
+            height: 100px; /* SHRUNK LOGO */
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 20px;
@@ -163,7 +163,7 @@
 
         h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
+            font-size: 2.8rem; /* SHRUNK MAIN HEADING */
             color: var(--text-dark);
             margin-bottom: 20px;
             font-weight: 700;
@@ -172,17 +172,17 @@
 
         .quote-box {
             max-width: 600px;
-            margin: 0 auto 40px;
-            font-size: 1.1rem;
+            margin: 0 auto 30px;
+            font-size: 1rem; /* SHRUNK QUOTE */
             color: var(--muted-text);
             font-style: italic;
-            min-height: 80px;
+            min-height: 70px;
             padding: 0 15px;
         }
         .quote-author {
             font-family: 'Playfair Display', serif;
             color: var(--accent-gold);
-            font-size: 1rem;
+            font-size: 0.9rem; /* SHRUNK AUTHOR */
             margin-top: 10px;
             font-style: normal;
         }
@@ -190,30 +190,30 @@
         .link-container {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 15px;
             width: 100%;
-            max-width: 400px;
+            max-width: 350px; /* Slightly narrower button container */
         }
 
         .btn {
-            padding: 20px 40px;
+            padding: 15px 32px; /* SLEEKER BUTTONS */
             border-radius: 100px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 0.95rem; /* SHRUNK BUTTON TEXT */
             text-align: center;
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
             background: #fff;
             color: var(--text-dark);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.03);
             border: 1px solid rgba(18, 31, 45, 0.05);
         }
 
         .btn:hover {
             transform: translateY(-4px);
-            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.15);
+            box-shadow: 0 12px 30px rgba(212, 175, 55, 0.15);
             border-color: var(--accent-gold);
             color: var(--accent-gold);
         }
@@ -221,7 +221,7 @@
         .btn-primary {
             background: var(--text-dark);
             color: #fff;
-            box-shadow: 0 15px 35px rgba(18, 31, 45, 0.15);
+            box-shadow: 0 12px 30px rgba(18, 31, 45, 0.15);
         }
         
         .btn-primary:hover {
@@ -231,7 +231,7 @@
         }
 
         section {
-            padding: 80px 20px;
+            padding: 70px 20px;
             max-width: 1100px;
             margin: 0 auto;
             text-align: center;
@@ -239,9 +239,9 @@
 
         .section-title {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
+            font-size: 2rem; /* SHRUNK SECTION TITLES */
             color: var(--text-dark);
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
 
         .section-title span {
@@ -249,14 +249,14 @@
         }
 
         .announcement-text {
-            font-size: 1.1rem;
+            font-size: 0.95rem; /* SHRUNK PARAGRAPH */
             max-width: 700px;
-            margin: 0 auto 30px;
+            margin: 0 auto 20px;
             color: var(--muted-text);
         }
 
         .highlight-text {
-            font-size: 1.2rem;
+            font-size: 1.05rem; /* SHRUNK HIGHLIGHT */
             font-weight: 600;
             color: var(--accent-gold);
             max-width: 700px;
@@ -267,19 +267,19 @@
         .committee-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr); 
-            gap: 50px 20px;
-            margin-top: 50px;
+            gap: 40px 20px;
+            margin-top: 40px;
         }
 
         @media (max-width: 900px) {
-            .committee-grid { grid-template-columns: repeat(3, 1fr); gap: 40px 10px;}
+            .committee-grid { grid-template-columns: repeat(3, 1fr); gap: 35px 10px;}
             .member:last-child { grid-column: 2; }
         }
         
         @media (max-width: 500px) {
-            .committee-grid { grid-template-columns: repeat(3, 1fr); gap: 25px 5px; }
-            .member h3 { font-size: 0.70rem !important; white-space: normal !important; line-height: 1.2; } 
-            .member p { font-size: 0.55rem !important; letter-spacing: 0.5px; }
+            .committee-grid { grid-template-columns: repeat(3, 1fr); gap: 20px 5px; }
+            .member h3 { font-size: 0.75rem !important; white-space: normal !important; line-height: 1.2; } 
+            .member p { font-size: 0.60rem !important; letter-spacing: 0.5px; }
             .member:last-child { grid-column: 2; }
         }
 
@@ -295,14 +295,14 @@
         .member:hover { transform: translateY(-5px); }
 
         .member h3 {
-            font-size: 1.15rem; 
+            font-size: 1rem; /* SHRUNK COMMITTEE NAMES */
             color: var(--text-dark);
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             font-weight: 700;
             white-space: nowrap; 
         }
         .member p {
-            font-size: 0.85rem;
+            font-size: 0.75rem; /* SHRUNK COMMITTEE ROLES */
             color: var(--accent-gold);
             text-transform: uppercase;
             letter-spacing: 1.5px;
@@ -312,7 +312,7 @@
 
         /* --- Footer --- */
         footer {
-            padding: 60px 20px 40px; 
+            padding: 50px 20px 30px; 
             text-align: center;
             background: #fff;
             border-top: 1px solid rgba(0,0,0,0.03);
@@ -320,13 +320,17 @@
 
         .footer-title {
             font-family: 'Playfair Display', serif;
-            font-size: 2rem;
+            font-size: 1.5rem; /* SHRUNK FOOTER TITLE */
             color: var(--text-dark);
             margin-bottom: 15px; 
         }
 
         footer a {
             text-decoration: none !important;
+        }
+
+        #support p {
+            font-size: 0.95rem; /* SHRUNK QUERIES TEXT */
         }
 
         .footer-contacts {
@@ -339,7 +343,7 @@
         .contact-link {
             color: var(--text-dark);
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 0.95rem; /* SHRUNK CONTACT INFO */
             transition: color 0.3s;
         }
         .contact-link:hover { color: var(--accent-gold); }
@@ -348,9 +352,9 @@
             .contact-link br { display: none; } 
         }
         @media (max-width: 500px) {
-            footer { padding: 40px 10px 30px; }
-            .footer-title { font-size: 1.6rem; margin-bottom: 5px; }
-            #support > p { font-size: 0.95rem !important; margin-bottom: 15px !important; line-height: 1.4; }
+            footer { padding: 30px 10px 20px; }
+            .footer-title { font-size: 1.4rem; margin-bottom: 5px; }
+            #support > p { font-size: 0.85rem !important; margin-bottom: 15px !important; line-height: 1.4; }
             .footer-contacts { 
                 flex-wrap: nowrap; 
                 gap: 5px; 
@@ -366,7 +370,7 @@
         /* 1. Instant Load Animation (For Top Nav and Hero) */
         .load-fade {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(20px);
             animation: fadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
         .delay-1 { animation-delay: 0.2s; }
@@ -378,7 +382,7 @@
         /* 2. Scroll Triggered Animation (For Sections below the fold) */
         .scroll-fade {
             opacity: 0;
-            transform: translateY(50px);
+            transform: translateY(40px);
             transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
         
@@ -465,7 +469,7 @@
 
     <footer id="support" class="scroll-fade">
         <h2 class="footer-title">Need <span>Support?</span></h2>
-        <p style="color: var(--muted-text); font-size: 1.1rem; margin-bottom: 5px;">For Any Queries, Contact:<br><a href="mailto:iccmessofficial@gmail.com" style="color: var(--accent-gold);">iccmessofficial@gmail.com</a></p>
+        <p style="color: var(--muted-text); font-size: 0.95rem; margin-bottom: 5px;">For Any Queries, Contact:<br><a href="mailto:iccmessofficial@gmail.com" style="color: var(--accent-gold);">iccmessofficial@gmail.com</a></p>
         
         <div class="footer-contacts">
             <a href="https://wa.me/919188242161" target="_blank" class="contact-link">Ashfak:<br>+91 9188242161</a>
@@ -473,7 +477,7 @@
             <a href="https://wa.me/919072171708" target="_blank" class="contact-link">Rafid:<br>+91 9072171708</a>
         </div>
         
-        <a href="http://www.icccet.com" target="_blank" style="color: var(--muted-text); font-weight: normal; font-size: 0.9rem;">www.icccet.com</a>
+        <a href="http://www.icccet.com" target="_blank" style="color: var(--muted-text); font-weight: normal; font-size: 0.85rem;">www.icccet.com</a>
     </footer>
 
     <script>
@@ -483,19 +487,18 @@
             const observerOptions = {
                 root: null,
                 rootMargin: '0px',
-                threshold: 0.15 // Triggers when 15% of the section is visible
+                threshold: 0.15 
             };
 
             const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
-                        observer.unobserve(entry.target); // Stops observing once it has animated in
+                        observer.unobserve(entry.target); 
                     }
                 });
             }, observerOptions);
 
-            // Grab all sections with the scroll-fade class and observe them
             document.querySelectorAll('.scroll-fade').forEach((element) => {
                 observer.observe(element);
             });
