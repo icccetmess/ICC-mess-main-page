@@ -153,16 +153,24 @@
         }
 
         /* 1. The Local Sketch Background (Vignette Version) */
-        /* DEBUG VERSION: No fading, no transparency, just the raw image */
         .hero::before {
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
+            
+            /* MAKE SURE YOUR LOCAL FILE IS NAMED sketch.jpg */
             background-image: url('sketch.jpg'); 
+            
             background-size: cover;
             background-position: center center;
-            background-color: red; /* If the image fails, the background will turn RED */
+            opacity: 0.3; /* Adjusted to 0.3 so you can clearly see it! */
             z-index: -2;
+            filter: sepia(100%) hue-rotate(5deg) saturate(200%);
+            pointer-events: none;
+            
+            /* The Magic Vignette */
+            -webkit-mask-image: radial-gradient(circle at center, black 35%, transparent 80%);
+            mask-image: radial-gradient(circle at center, black 35%, transparent 80%);
         }
 
         /* 2. The Gold Glow Overlay */
