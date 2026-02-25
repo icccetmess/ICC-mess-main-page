@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-light: #f4f6f8; /* Slightly darker grey so the white cards pop */
+            --bg-light: #f4f6f8; 
             --text-dark: #121f2d; 
             --accent-gold: #D4AF37; 
             --muted-text: #6b7280;
@@ -130,7 +130,7 @@
 
         /* --- Reduced Hero Section --- */
         .hero {
-            min-height: 85vh; /* Reduced from 100vh so the cards peek up */
+            min-height: 85vh; 
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -230,18 +230,17 @@
             border-color: var(--accent-gold);
         }
 
-        /* --- Reduced Global Padding --- */
         section {
-            padding: 50px 20px; /* Reduced from 80px */
+            padding: 50px 20px; 
             max-width: 1100px;
             margin: 0 auto;
             text-align: center;
         }
 
-        /* --- NEW: Info Cards Grid (Side-by-Side) --- */
+        /* --- Info Cards Grid --- */
         .info-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr; /* 2 columns on PC */
+            grid-template-columns: 1fr 1fr; 
             gap: 30px;
             max-width: 1100px;
             margin: 0 auto 30px;
@@ -250,7 +249,7 @@
 
         @media (max-width: 768px) {
             .info-grid {
-                grid-template-columns: 1fr; /* Stacks on mobile */
+                grid-template-columns: 1fr; 
                 gap: 20px;
             }
         }
@@ -300,7 +299,7 @@
             display: grid;
             grid-template-columns: repeat(4, 1fr); 
             gap: 40px 20px;
-            margin-top: 20px; /* Reduced margin */
+            margin-top: 20px; 
         }
 
         @media (max-width: 900px) {
@@ -342,20 +341,20 @@
             margin: 0;
         }
 
-        /* --- NEW: Dark Footer / Support Section --- */
+        /* --- TIGHT, SMALL FOOTER / SUPPORT SECTION --- */
         footer {
-            padding: 60px 20px 20px; 
+            padding: 40px 20px 15px; /* Shrunk padding */
             text-align: center;
-            background-color: var(--text-dark); /* Dark Blue Background */
+            background-color: var(--text-dark); 
             color: #fff;
             margin-top: 40px;
         }
 
         .footer-title {
             font-family: 'Playfair Display', serif;
-            font-size: 2rem; 
+            font-size: 1.3rem; /* Tiny subtle header */
             color: #fff;
-            margin-bottom: 15px; 
+            margin-bottom: 10px; 
         }
         
         .footer-title span {
@@ -367,21 +366,21 @@
         }
 
         #support p {
-            font-size: 0.95rem; 
-            color: rgba(255, 255, 255, 0.7); /* Light grey text */
+            font-size: 0.85rem; /* Much smaller text */
+            color: rgba(255, 255, 255, 0.7); 
         }
 
         .footer-contacts {
             display: flex;
             justify-content: center;
-            gap: 40px;
-            margin: 25px 0 30px; 
+            gap: 30px; /* Tighter gap */
+            margin: 15px 0 20px; 
         }
 
         .contact-link {
-            color: #fff; /* White links */
+            color: #fff; 
             font-weight: 600;
-            font-size: 0.95rem; 
+            font-size: 0.85rem; /* Much smaller link size */
             transition: color 0.3s;
         }
         
@@ -389,12 +388,12 @@
             color: var(--accent-gold); 
         }
 
-        /* Copyright Bar */
+        /* Tiny Copyright Bar */
         .copyright {
-            margin-top: 40px;
-            padding-top: 20px;
+            margin-top: 25px;
+            padding-top: 15px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.8rem;
+            font-size: 0.65rem; /* Standard tiny copyright size */
             color: rgba(255, 255, 255, 0.4);
             letter-spacing: 1px;
             text-transform: uppercase;
@@ -404,17 +403,18 @@
             .contact-link br { display: none; } 
         }
         @media (max-width: 500px) {
-            footer { padding: 50px 10px 20px; }
-            .footer-title { font-size: 1.6rem; margin-bottom: 5px; }
-            #support > p { font-size: 0.85rem !important; margin-bottom: 15px !important; line-height: 1.4; }
+            footer { padding: 30px 10px 15px; } /* Tiny mobile padding */
+            .footer-title { font-size: 1.1rem; margin-bottom: 5px; }
+            #support > p { font-size: 0.75rem !important; margin-bottom: 10px !important; line-height: 1.4; }
             .footer-contacts { 
                 flex-wrap: nowrap; 
                 gap: 5px; 
                 justify-content: space-evenly;
-                margin: 20px 0; 
+                margin: 15px 0; 
             }
-            .contact-link { font-size: 0.75rem !important; line-height: 1.4; text-align: center; }
+            .contact-link { font-size: 0.7rem !important; line-height: 1.4; text-align: center; }
             .contact-link br { display: block; }
+            .copyright { font-size: 0.6rem; margin-top: 20px; padding-top: 10px; }
         }
 
         /* --- ANIMATIONS --- */
@@ -529,10 +529,10 @@
             <a href="https://wa.me/919072171708" target="_blank" class="contact-link">Rafid:<br>+91 9072171708</a>
         </div>
         
-        <a href="http://www.icccet.com" target="_blank" style="color: rgba(255, 255, 255, 0.5); font-size: 0.85rem;">www.icccet.com</a>
+        <a href="http://www.icccet.com" target="_blank" style="color: rgba(255, 255, 255, 0.5); font-size: 0.75rem;">www.icccet.com</a>
 
         <div class="copyright">
-            &copy; 2026 Official ICC Committee. All Rights Reserved.
+            © 2026 Official ICC Committee. All Rights Reserved.
         </div>
     </footer>
 
