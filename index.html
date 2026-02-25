@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="format-detection" content="telephone=no"> <title>ICC Mess Hub</title>
+    <meta name="format-detection" content="telephone=no">
+    <title>ICC Mess Hub</title>
     <link rel="icon" href="https://lh3.googleusercontent.com/u/0/d/1CqVtnSdnA0m75lrVohhj6KvQya0dQHzL">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -116,7 +117,6 @@
             width: 100%;
         }
 
-        /* Mobile View Navigation */
         @media (max-width: 768px) {
             .top-nav { padding: 15px 10px; }
             .nav-brand span { display: none; }
@@ -263,7 +263,7 @@
             margin: 0 auto;
         }
 
-        /* --- Committee List (Strict 3-Column on Mobile) --- */
+        /* --- Committee List --- */
         .committee-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr); 
@@ -312,7 +312,7 @@
 
         /* --- Footer --- */
         footer {
-            padding: 60px 20px 40px; /* Reduced overall padding */
+            padding: 60px 20px 40px; 
             text-align: center;
             background: #fff;
             border-top: 1px solid rgba(0,0,0,0.03);
@@ -322,10 +322,9 @@
             font-family: 'Playfair Display', serif;
             font-size: 2rem;
             color: var(--text-dark);
-            margin-bottom: 15px; /* Reduced margin */
+            margin-bottom: 15px; 
         }
 
-        /* Force ALL links inside the footer to have no underlines ever */
         footer a {
             text-decoration: none !important;
         }
@@ -334,7 +333,7 @@
             display: flex;
             justify-content: center;
             gap: 40px;
-            margin: 20px 0; /* Reduced margin */
+            margin: 20px 0; 
         }
 
         .contact-link {
@@ -345,55 +344,53 @@
         }
         .contact-link:hover { color: var(--accent-gold); }
 
-        /* Mobile specific adjustments for the Footer */
         @media (min-width: 501px) {
             .contact-link br { display: none; } 
         }
         @media (max-width: 500px) {
-            footer {
-                padding: 40px 10px 30px; /* Tighter box on mobile */
-            }
-            .footer-title {
-                font-size: 1.6rem; /* Smaller "Need Support?" on mobile */
-                margin-bottom: 5px; 
-            }
-            /* Reduce space around the "For Any Queries" text */
-            #support > p {
-                font-size: 0.95rem !important;
-                margin-bottom: 15px !important;
-                line-height: 1.4;
-            }
+            footer { padding: 40px 10px 30px; }
+            .footer-title { font-size: 1.6rem; margin-bottom: 5px; }
+            #support > p { font-size: 0.95rem !important; margin-bottom: 15px !important; line-height: 1.4; }
             .footer-contacts { 
                 flex-wrap: nowrap; 
                 gap: 5px; 
                 justify-content: space-evenly;
-                margin: 15px 0 25px 0; /* Tighter margins around the names */
+                margin: 15px 0 25px 0; 
             }
-            .contact-link { 
-                font-size: 0.75rem !important; 
-                line-height: 1.4;
-                text-align: center;
-            }
+            .contact-link { font-size: 0.75rem !important; line-height: 1.4; text-align: center; }
             .contact-link br { display: block; }
         }
 
-        /* Animations */
-        .fade-in {
+        /* --- ANIMATIONS --- */
+        
+        /* 1. Instant Load Animation (For Top Nav and Hero) */
+        .load-fade {
             opacity: 0;
             transform: translateY(30px);
             animation: fadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
         .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
-
+        
         @keyframes fadeIn {
             to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 2. Scroll Triggered Animation (For Sections below the fold) */
+        .scroll-fade {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .scroll-fade.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
 
-    <nav class="top-nav fade-in">
+    <nav class="top-nav load-fade">
         <a href="#" class="nav-brand">
             <img src="https://lh3.googleusercontent.com/u/0/d/1CqVtnSdnA0m75lrVohhj6KvQya0dQHzL" alt="ICC Logo">
             <span>ICC</span>
@@ -407,7 +404,7 @@
         </ul>
     </nav>
 
-    <header class="hero fade-in delay-1">
+    <header class="hero load-fade delay-1">
         <img src="https://lh3.googleusercontent.com/u/0/d/1CqVtnSdnA0m75lrVohhj6KvQya0dQHzL" alt="ICC Logo" class="logo">
         
         <h1>ICC MESS</h1>
@@ -424,7 +421,7 @@
         </div>
     </header>
 
-    <section id="announcements" class="fade-in delay-2">
+    <section id="announcements" class="scroll-fade">
         <h2 class="section-title">Important <span>Updates</span></h2>
         <p class="announcement-text">
             <strong>Mess Registration & Cut Forms:</strong> These forms will be open daily from 6:00 AM to 9:40 PM. Please ensure you submit within this time frame.
@@ -434,14 +431,14 @@
         </p>
     </section>
 
-    <section id="about" class="fade-in delay-2">
+    <section id="about" class="scroll-fade">
         <h2 class="section-title">About <span>Us</span></h2>
         <p class="announcement-text" style="max-width: 800px;">
             The Islamic Cultural Centre (ICC) is a student organization at the College of Engineering Trivandrum (CET) dedicated to fostering a sense of community, spirituality, and service. We provide essential services like the student mess and organize cultural and educational events to enrich the lives of students on campus.
         </p>
     </section>
 
-    <section id="committee" class="fade-in delay-2">
+    <section id="committee" class="scroll-fade">
         <h2 class="section-title">The <span>Committee</span></h2>
         <div class="committee-grid">
             <div class="member"><h3>Mohammed Zain P</h3><p>Ameer</p></div>
@@ -466,7 +463,7 @@
         </div>
     </section>
 
-    <footer id="support">
+    <footer id="support" class="scroll-fade">
         <h2 class="footer-title">Need <span>Support?</span></h2>
         <p style="color: var(--muted-text); font-size: 1.1rem; margin-bottom: 5px;">For Any Queries, Contact:<br><a href="mailto:iccmessofficial@gmail.com" style="color: var(--accent-gold);">iccmessofficial@gmail.com</a></p>
         
@@ -481,6 +478,30 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- 1. Scroll Animation Logic ---
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15 // Triggers when 15% of the section is visible
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); // Stops observing once it has animated in
+                    }
+                });
+            }, observerOptions);
+
+            // Grab all sections with the scroll-fade class and observe them
+            document.querySelectorAll('.scroll-fade').forEach((element) => {
+                observer.observe(element);
+            });
+
+
+            // --- 2. Quote Slideshow Logic ---
             const quoteTextEl = document.getElementById('quoteText');
             const quoteAuthorEl = document.getElementById('quoteAuthor');
             const quotes = [
