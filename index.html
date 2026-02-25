@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ICC Mess Hub</title>
+    <meta name="format-detection" content="telephone=no"> <title>ICC Mess Hub</title>
     <link rel="icon" href="https://lh3.googleusercontent.com/u/0/d/1CqVtnSdnA0m75lrVohhj6KvQya0dQHzL">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -116,15 +116,15 @@
             width: 100%;
         }
 
-        /* Mobile View Navigation - Strictly Single Row */
+        /* Mobile View Navigation */
         @media (max-width: 768px) {
             .top-nav { padding: 15px 10px; }
             .nav-brand span { display: none; }
             .nav-brand img { height: 35px; width: 35px; }
             .top-nav ul { gap: 8px; }
             .top-nav ul a { 
-                font-size: 0.55rem; /* Shrunk to guarantee fit */
-                white-space: nowrap; /* Forces "ABOUT US" to stay on one line */
+                font-size: 0.55rem; 
+                white-space: nowrap; 
             }
         }
 
@@ -272,9 +272,7 @@
         }
 
         @media (max-width: 900px) {
-            /* Change to 3 columns on tablets and phones */
             .committee-grid { grid-template-columns: repeat(3, 1fr); gap: 40px 10px;}
-            /* 16th item gets pushed to the center column */
             .member:last-child { grid-column: 2; }
         }
         
@@ -314,7 +312,7 @@
 
         /* --- Footer --- */
         footer {
-            padding: 80px 20px 60px;
+            padding: 60px 20px 40px; /* Reduced overall padding */
             text-align: center;
             background: #fff;
             border-top: 1px solid rgba(0,0,0,0.03);
@@ -324,41 +322,59 @@
             font-family: 'Playfair Display', serif;
             font-size: 2rem;
             color: var(--text-dark);
-            margin-bottom: 20px;
+            margin-bottom: 15px; /* Reduced margin */
+        }
+
+        /* Force ALL links inside the footer to have no underlines ever */
+        footer a {
+            text-decoration: none !important;
         }
 
         .footer-contacts {
             display: flex;
             justify-content: center;
             gap: 40px;
-            margin: 30px 0;
+            margin: 20px 0; /* Reduced margin */
         }
 
         .contact-link {
             color: var(--text-dark);
-            text-decoration: none;
             font-weight: 600;
             font-size: 1.1rem;
             transition: color 0.3s;
         }
         .contact-link:hover { color: var(--accent-gold); }
 
-        /* Mobile Footer Contacts - Forced to single row */
+        /* Mobile specific adjustments for the Footer */
         @media (min-width: 501px) {
-            .contact-link br { display: none; } /* Keeps Name and Number side-by-side on PC */
+            .contact-link br { display: none; } 
         }
         @media (max-width: 500px) {
+            footer {
+                padding: 40px 10px 30px; /* Tighter box on mobile */
+            }
+            .footer-title {
+                font-size: 1.6rem; /* Smaller "Need Support?" on mobile */
+                margin-bottom: 5px; 
+            }
+            /* Reduce space around the "For Any Queries" text */
+            #support > p {
+                font-size: 0.95rem !important;
+                margin-bottom: 15px !important;
+                line-height: 1.4;
+            }
             .footer-contacts { 
-                flex-wrap: nowrap; /* Forces them to stay in one horizontal line */
+                flex-wrap: nowrap; 
                 gap: 5px; 
                 justify-content: space-evenly;
+                margin: 15px 0 25px 0; /* Tighter margins around the names */
             }
             .contact-link { 
                 font-size: 0.75rem !important; 
                 line-height: 1.4;
                 text-align: center;
             }
-            .contact-link br { display: block; } /* Stacks the number right underneath the name nicely so it fits */
+            .contact-link br { display: block; }
         }
 
         /* Animations */
@@ -452,7 +468,7 @@
 
     <footer id="support">
         <h2 class="footer-title">Need <span>Support?</span></h2>
-        <p style="color: var(--muted-text); font-size: 1.1rem;">For Any Queries, Contact: <a href="mailto:iccmessofficial@gmail.com" style="color: var(--accent-gold);">iccmessofficial@gmail.com</a></p>
+        <p style="color: var(--muted-text); font-size: 1.1rem; margin-bottom: 5px;">For Any Queries, Contact:<br><a href="mailto:iccmessofficial@gmail.com" style="color: var(--accent-gold);">iccmessofficial@gmail.com</a></p>
         
         <div class="footer-contacts">
             <a href="https://wa.me/919188242161" target="_blank" class="contact-link">Ashfak:<br>+91 9188242161</a>
