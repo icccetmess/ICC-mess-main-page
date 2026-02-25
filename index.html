@@ -117,6 +117,15 @@
             width: 100%;
         }
 
+        /* --- Active Navigation State (Scrollspy) --- */
+        .top-nav ul a.active {
+            color: var(--accent-gold);
+        }
+
+        .top-nav ul a.active::after {
+            width: 100%;
+        }
+
         @media (max-width: 768px) {
             .top-nav { padding: 15px 10px; }
             .nav-brand span { display: none; }
@@ -321,7 +330,7 @@
             justify-content: flex-start;
             text-align: center;
             transition: transform 0.3s ease;
-            height: 100%; /* Ensures the container takes up the full grid space */
+            height: 100%; 
         }
         
         .member:hover { transform: translateY(-5px); }
@@ -341,7 +350,7 @@
             letter-spacing: 1.5px;
             font-weight: 700;
             margin: 0;
-            margin-top: auto; /* Pushes the role to the absolute bottom of the container, aligning perfectly with others in the row */
+            margin-top: auto; 
         }
 
         /* --- TIGHT, SMALL FOOTER / SUPPORT SECTION --- */
@@ -561,6 +570,38 @@
             document.querySelectorAll('.scroll-fade').forEach((element) => {
                 observer.observe(element);
             });
+
+            // --- Scrollspy Navigation Logic ---
+            const sections = document.querySelectorAll('#announcements, #about, #committee, #support');
+            const navLinks = document.querySelectorAll('.top-nav ul a');
+
+            const scrollSpyOptions = {
+                root: null,
+                // Triggers the active state when a section crosses the top/middle viewport area
+                rootMargin: '-20% 0px -60% 0px', 
+                threshold: 0
+            };
+
+            const scrollSpyObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Remove 'active' class from all links
+                        navLinks.forEach(link => link.classList.remove('active'));
+                        
+                        // Find the link that matches the ID of the current section
+                        const id = entry.target.getAttribute('id');
+                        const activeLink = document.querySelector(`.top-nav ul a[href="#${id}"]`);
+                        
+                        // Add 'active' class to the matching link
+                        if (activeLink) {
+                            activeLink.classList.add('active');
+                        }
+                    }
+                });
+            }, scrollSpyOptions);
+
+            // Start observing each section for scrollspy
+            sections.forEach(section => scrollSpyObserver.observe(section));
 
 
             // --- Quote Slideshow Logic ---
