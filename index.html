@@ -45,7 +45,7 @@
             justify-content: space-between; 
             align-items: center;
             z-index: 1000;
-            background: rgba(252, 252, 252, 0.9);
+            background: rgba(252, 252, 252, 0.95);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             box-shadow: 0 2px 20px rgba(0,0,0,0.02);
@@ -62,7 +62,9 @@
 
         .nav-brand img {
             height: 40px; 
-            width: auto;
+            width: 40px;
+            border-radius: 50%;
+            object-fit: cover;
         }
 
         .nav-brand span {
@@ -93,7 +95,7 @@
             font-size: 0.95rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            position: relative; /* Needed for the underline */
+            position: relative; 
             transition: color 0.3s;
         }
 
@@ -101,7 +103,7 @@
             color: var(--accent-gold);
         }
 
-        /* The Underline Animation ONLY for right-side list items */
+        /* Underline Animation */
         .top-nav ul a::after {
             content: '';
             position: absolute;
@@ -113,17 +115,30 @@
             transition: width 0.3s ease-in-out;
         }
 
-        /* Show underline on Hover and Click (Focus) */
         .top-nav ul a:hover::after,
         .top-nav ul a:focus::after {
             width: 100%;
         }
 
+        /* Mobile View Navigation - Forced into single line */
         @media (max-width: 768px) {
-            .top-nav { padding: 15px 20px; }
-            .nav-brand span { display: none; }
-            .top-nav ul { gap: 15px; }
-            .top-nav ul a { font-size: 0.75rem; }
+            .top-nav { 
+                padding: 15px 10px; 
+            }
+            .nav-brand span { 
+                display: none; /* Hide ICC text to make room for links on mobile */ 
+            }
+            .nav-brand img {
+                height: 35px;
+                width: 35px;
+            }
+            .top-nav ul { 
+                gap: 12px; 
+            }
+            .top-nav ul a { 
+                font-size: 0.65rem; /* Shrinks text to fit standard mobile width */
+                white-space: nowrap; /* COMPLETELY prevents "ABOUT US" from breaking into two rows */
+            }
         }
 
         /* --- Full Screen Hero Section --- */
@@ -151,7 +166,9 @@
 
         .logo {
             width: 140px;
-            height: auto;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
             margin-bottom: 20px;
             transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
@@ -173,6 +190,7 @@
             color: var(--muted-text);
             font-style: italic;
             min-height: 80px;
+            padding: 0 15px;
         }
         .quote-author {
             font-family: 'Playfair Display', serif;
@@ -260,7 +278,7 @@
             margin: 0 auto;
         }
 
-        /* --- Committee List --- */
+        /* --- Committee List (Grid for Desktop AND Mobile) --- */
         .committee-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr); 
@@ -268,11 +286,16 @@
             margin-top: 50px;
         }
 
+        /* Mobile specific grid sizing to keep it 2 columns */
         @media (max-width: 900px) {
-            .committee-grid { grid-template-columns: repeat(2, 1fr); }
+            .committee-grid { grid-template-columns: repeat(2, 1fr); gap: 40px 15px;}
         }
+        
         @media (max-width: 500px) {
-            .committee-grid { grid-template-columns: 1fr; }
+            /* We force 2 columns here so it doesn't look boring on phones */
+            .committee-grid { grid-template-columns: repeat(2, 1fr); gap: 30px 10px; }
+            .member h3 { font-size: 1rem !important; white-space: normal !important; } /* Allows long names to wrap slightly so they fit in 2 columns */
+            .member p { font-size: 0.75rem !important; }
         }
 
         .member {
@@ -438,6 +461,8 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+
+            // --- Quote Slideshow Logic ---
             const quoteTextEl = document.getElementById('quoteText');
             const quoteAuthorEl = document.getElementById('quoteAuthor');
             const quotes = [
