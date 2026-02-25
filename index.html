@@ -12,14 +12,13 @@
     <style>
         :root {
             --bg-light: #fcfcfc;
-            --text-dark: #121f2d; /* Deep Navy/Dark Blue */
-            --accent-gold: #D4AF37; /* Golden Yellow */
+            --text-dark: #121f2d; 
+            --accent-gold: #D4AF37; 
             --muted-text: #6b7280;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* Smooth scrolling */
         html {
             scroll-behavior: smooth;
             scroll-padding-top: 100px;
@@ -51,7 +50,6 @@
             box-shadow: 0 2px 20px rgba(0,0,0,0.02);
         }
 
-        /* Top Left Brand Area (Logo & Text) */
         .nav-brand {
             display: flex;
             align-items: center;
@@ -79,7 +77,6 @@
             color: var(--accent-gold);
         }
 
-        /* Top Right Links */
         .top-nav ul {
             display: flex;
             gap: 30px;
@@ -103,7 +100,6 @@
             color: var(--accent-gold);
         }
 
-        /* Underline Animation */
         .top-nav ul a::after {
             content: '';
             position: absolute;
@@ -120,24 +116,15 @@
             width: 100%;
         }
 
-        /* Mobile View Navigation - Forced into single line */
+        /* Mobile View Navigation - Strictly Single Row */
         @media (max-width: 768px) {
-            .top-nav { 
-                padding: 15px 10px; 
-            }
-            .nav-brand span { 
-                display: none; /* Hide ICC text to make room for links on mobile */ 
-            }
-            .nav-brand img {
-                height: 35px;
-                width: 35px;
-            }
-            .top-nav ul { 
-                gap: 12px; 
-            }
+            .top-nav { padding: 15px 10px; }
+            .nav-brand span { display: none; }
+            .nav-brand img { height: 35px; width: 35px; }
+            .top-nav ul { gap: 8px; }
             .top-nav ul a { 
-                font-size: 0.65rem; /* Shrinks text to fit standard mobile width */
-                white-space: nowrap; /* COMPLETELY prevents "ABOUT US" from breaking into two rows */
+                font-size: 0.55rem; /* Shrunk to guarantee fit */
+                white-space: nowrap; /* Forces "ABOUT US" to stay on one line */
             }
         }
 
@@ -200,7 +187,6 @@
             font-style: normal;
         }
 
-        /* --- Pill-Shaped Fluid Buttons --- */
         .link-container {
             display: flex;
             flex-direction: column;
@@ -244,7 +230,6 @@
             border-color: var(--accent-gold);
         }
 
-        /* --- Fluid Sections --- */
         section {
             padding: 80px 20px;
             max-width: 1100px;
@@ -278,7 +263,7 @@
             margin: 0 auto;
         }
 
-        /* --- Committee List (Grid for Desktop AND Mobile) --- */
+        /* --- Committee List (Strict 3-Column on Mobile) --- */
         .committee-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr); 
@@ -286,16 +271,18 @@
             margin-top: 50px;
         }
 
-        /* Mobile specific grid sizing to keep it 2 columns */
         @media (max-width: 900px) {
-            .committee-grid { grid-template-columns: repeat(2, 1fr); gap: 40px 15px;}
+            /* Change to 3 columns on tablets and phones */
+            .committee-grid { grid-template-columns: repeat(3, 1fr); gap: 40px 10px;}
+            /* 16th item gets pushed to the center column */
+            .member:last-child { grid-column: 2; }
         }
         
         @media (max-width: 500px) {
-            /* We force 2 columns here so it doesn't look boring on phones */
-            .committee-grid { grid-template-columns: repeat(2, 1fr); gap: 30px 10px; }
-            .member h3 { font-size: 1rem !important; white-space: normal !important; } /* Allows long names to wrap slightly so they fit in 2 columns */
-            .member p { font-size: 0.75rem !important; }
+            .committee-grid { grid-template-columns: repeat(3, 1fr); gap: 25px 5px; }
+            .member h3 { font-size: 0.70rem !important; white-space: normal !important; line-height: 1.2; } 
+            .member p { font-size: 0.55rem !important; letter-spacing: 0.5px; }
+            .member:last-child { grid-column: 2; }
         }
 
         .member {
@@ -345,17 +332,34 @@
             justify-content: center;
             gap: 40px;
             margin: 30px 0;
-            flex-wrap: wrap;
         }
 
-        footer a {
+        .contact-link {
             color: var(--text-dark);
             text-decoration: none;
             font-weight: 600;
             font-size: 1.1rem;
             transition: color 0.3s;
         }
-        footer a:hover { color: var(--accent-gold); }
+        .contact-link:hover { color: var(--accent-gold); }
+
+        /* Mobile Footer Contacts - Forced to single row */
+        @media (min-width: 501px) {
+            .contact-link br { display: none; } /* Keeps Name and Number side-by-side on PC */
+        }
+        @media (max-width: 500px) {
+            .footer-contacts { 
+                flex-wrap: nowrap; /* Forces them to stay in one horizontal line */
+                gap: 5px; 
+                justify-content: space-evenly;
+            }
+            .contact-link { 
+                font-size: 0.75rem !important; 
+                line-height: 1.4;
+                text-align: center;
+            }
+            .contact-link br { display: block; } /* Stacks the number right underneath the name nicely so it fits */
+        }
 
         /* Animations */
         .fade-in {
@@ -451,9 +455,9 @@
         <p style="color: var(--muted-text); font-size: 1.1rem;">For Any Queries, Contact: <a href="mailto:iccmessofficial@gmail.com" style="color: var(--accent-gold);">iccmessofficial@gmail.com</a></p>
         
         <div class="footer-contacts">
-            <a href="https://wa.me/919188242161" target="_blank">Ashfak: +91 9188242161</a>
-            <a href="https://wa.me/917558957246" target="_blank">Rajab: +91 7558957246</a>
-            <a href="https://wa.me/919072171708" target="_blank">Rafid: +91 9072171708</a>
+            <a href="https://wa.me/919188242161" target="_blank" class="contact-link">Ashfak:<br>+91 9188242161</a>
+            <a href="https://wa.me/917558957246" target="_blank" class="contact-link">Rajab:<br>+91 7558957246</a>
+            <a href="https://wa.me/919072171708" target="_blank" class="contact-link">Rafid:<br>+91 9072171708</a>
         </div>
         
         <a href="http://www.icccet.com" target="_blank" style="color: var(--muted-text); font-weight: normal; font-size: 0.9rem;">www.icccet.com</a>
@@ -461,8 +465,6 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-
-            // --- Quote Slideshow Logic ---
             const quoteTextEl = document.getElementById('quoteText');
             const quoteAuthorEl = document.getElementById('quoteAuthor');
             const quotes = [
