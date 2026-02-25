@@ -152,7 +152,7 @@
             z-index: 1; /* Establishes stacking order for background */
         }
 
-        /* 1. The Sketch Background */
+        /* 1. The Sketch Background (Vignette Version) */
         .hero::before {
             content: '';
             position: absolute;
@@ -160,11 +160,14 @@
             background-image: url('https://drive.google.com/uc?export=view&id=1Estw1iD9QFl8KhRvRe2AfqomG_StWQkx');
             background-size: cover;
             background-position: center center;
-            opacity: 0.06; /* Very subtle transparency */
+            opacity: 0.12; /* Slightly higher opacity because the edges are hidden */
             z-index: -2;
-            /* Tints the grey pencil into a warm golden hue to match the site */
             filter: sepia(100%) hue-rotate(5deg) saturate(200%);
-            pointer-events: none; /* Prevents the image from blocking clicks */
+            pointer-events: none;
+            
+            /* The Magic Vignette: Fades out the edges into the website's background color */
+            -webkit-mask-image: radial-gradient(circle at center, black 35%, transparent 80%);
+            mask-image: radial-gradient(circle at center, black 35%, transparent 80%);
         }
 
         /* 2. The Gold Glow Overlay */
