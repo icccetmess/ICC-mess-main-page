@@ -128,7 +128,7 @@
             }
         }
 
-        /* --- Reduced Hero Section --- */
+        /* --- Hero Section --- */
         .hero {
             min-height: 85vh; 
             display: flex;
@@ -321,6 +321,7 @@
             justify-content: flex-start;
             text-align: center;
             transition: transform 0.3s ease;
+            height: 100%; /* Ensures the container takes up the full grid space */
         }
         
         .member:hover { transform: translateY(-5px); }
@@ -332,6 +333,7 @@
             font-weight: 700;
             white-space: nowrap; 
         }
+        
         .member p {
             font-size: 0.75rem; 
             color: var(--accent-gold);
@@ -339,11 +341,12 @@
             letter-spacing: 1.5px;
             font-weight: 700;
             margin: 0;
+            margin-top: auto; /* Pushes the role to the absolute bottom of the container, aligning perfectly with others in the row */
         }
 
         /* --- TIGHT, SMALL FOOTER / SUPPORT SECTION --- */
         footer {
-            padding: 40px 20px 15px; /* Shrunk padding */
+            padding: 40px 20px 15px; 
             text-align: center;
             background-color: var(--text-dark); 
             color: #fff;
@@ -352,7 +355,7 @@
 
         .footer-title {
             font-family: 'Playfair Display', serif;
-            font-size: 1.3rem; /* Tiny subtle header */
+            font-size: 1.3rem; 
             color: #fff;
             margin-bottom: 10px; 
         }
@@ -366,21 +369,21 @@
         }
 
         #support p {
-            font-size: 0.85rem; /* Much smaller text */
+            font-size: 0.85rem; 
             color: rgba(255, 255, 255, 0.7); 
         }
 
         .footer-contacts {
             display: flex;
             justify-content: center;
-            gap: 30px; /* Tighter gap */
+            gap: 30px; 
             margin: 15px 0 20px; 
         }
 
         .contact-link {
             color: #fff; 
             font-weight: 600;
-            font-size: 0.85rem; /* Much smaller link size */
+            font-size: 0.85rem; 
             transition: color 0.3s;
         }
         
@@ -393,7 +396,7 @@
             margin-top: 25px;
             padding-top: 15px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.65rem; /* Standard tiny copyright size */
+            font-size: 0.65rem; 
             color: rgba(255, 255, 255, 0.4);
             letter-spacing: 1px;
             text-transform: uppercase;
@@ -403,7 +406,7 @@
             .contact-link br { display: none; } 
         }
         @media (max-width: 500px) {
-            footer { padding: 30px 10px 15px; } /* Tiny mobile padding */
+            footer { padding: 30px 10px 15px; } 
             .footer-title { font-size: 1.1rem; margin-bottom: 5px; }
             #support > p { font-size: 0.75rem !important; margin-bottom: 10px !important; line-height: 1.4; }
             .footer-contacts { 
