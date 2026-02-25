@@ -139,7 +139,7 @@
             .top-nav ul a { font-size: 0.55rem; white-space: nowrap; }
         }
 
-        /* --- Hero Section with Background Sketch --- */
+        /* --- Hero Section --- */
         .hero {
             min-height: 85vh; 
             display: flex;
@@ -149,23 +149,26 @@
             text-align: center;
             padding: 120px 20px 40px; 
             position: relative;
-            z-index: 1; /* Establishes stacking order for background */
+            z-index: 1; 
         }
 
-        /* 1. The Sketch Background (Vignette Version) */
+        /* 1. The Local Sketch Background (Vignette Version) */
         .hero::before {
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background-image: url('https://drive.google.com/uc?export=view&id=1Estw1iD9QFl8KhRvRe2AfqomG_StWQkx');
+            
+            /* MAKE SURE YOUR LOCAL FILE IS NAMED sketch.jpg */
+            background-image: url('sketch.jpg'); 
+            
             background-size: cover;
             background-position: center center;
-            opacity: 0.12; /* Slightly higher opacity because the edges are hidden */
+            opacity: 0.3; /* Adjusted to 0.3 so you can clearly see it! */
             z-index: -2;
             filter: sepia(100%) hue-rotate(5deg) saturate(200%);
             pointer-events: none;
             
-            /* The Magic Vignette: Fades out the edges into the website's background color */
+            /* The Magic Vignette */
             -webkit-mask-image: radial-gradient(circle at center, black 35%, transparent 80%);
             mask-image: radial-gradient(circle at center, black 35%, transparent 80%);
         }
