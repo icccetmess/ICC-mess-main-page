@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-light: #fcfcfc;
+            --bg-light: #f4f6f8; /* Slightly darker grey so the white cards pop */
             --text-dark: #121f2d; 
             --accent-gold: #D4AF37; 
             --muted-text: #6b7280;
@@ -45,7 +45,7 @@
             justify-content: space-between; 
             align-items: center;
             z-index: 1000;
-            background: rgba(252, 252, 252, 0.95);
+            background: rgba(244, 246, 248, 0.95);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             box-shadow: 0 2px 20px rgba(0,0,0,0.02);
@@ -90,7 +90,7 @@
             text-decoration: none;
             color: var(--text-dark);
             font-weight: 600;
-            font-size: 0.95rem; /* Left untouched */
+            font-size: 0.95rem; 
             text-transform: uppercase;
             letter-spacing: 0.5px;
             position: relative; 
@@ -123,20 +123,20 @@
             .nav-brand img { height: 35px; width: 35px; }
             .top-nav ul { gap: 8px; }
             .top-nav ul a { 
-                font-size: 0.55rem; /* Left untouched */
+                font-size: 0.55rem; 
                 white-space: nowrap; 
             }
         }
 
-        /* --- Full Screen Hero Section --- */
+        /* --- Reduced Hero Section --- */
         .hero {
-            min-height: 100vh;
+            min-height: 85vh; /* Reduced from 100vh so the cards peek up */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 100px 20px 40px; 
+            padding: 120px 20px 40px; 
             position: relative;
         }
 
@@ -152,8 +152,8 @@
         }
 
         .logo {
-            width: 100px; /* SHRUNK LOGO */
-            height: 100px; /* SHRUNK LOGO */
+            width: 100px; 
+            height: 100px; 
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 20px;
@@ -163,7 +163,7 @@
 
         h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.8rem; /* SHRUNK MAIN HEADING */
+            font-size: 2.8rem; 
             color: var(--text-dark);
             margin-bottom: 20px;
             font-weight: 700;
@@ -173,7 +173,7 @@
         .quote-box {
             max-width: 600px;
             margin: 0 auto 30px;
-            font-size: 1rem; /* SHRUNK QUOTE */
+            font-size: 1rem; 
             color: var(--muted-text);
             font-style: italic;
             min-height: 70px;
@@ -182,7 +182,7 @@
         .quote-author {
             font-family: 'Playfair Display', serif;
             color: var(--accent-gold);
-            font-size: 0.9rem; /* SHRUNK AUTHOR */
+            font-size: 0.9rem; 
             margin-top: 10px;
             font-style: normal;
         }
@@ -192,15 +192,15 @@
             flex-direction: column;
             gap: 15px;
             width: 100%;
-            max-width: 350px; /* Slightly narrower button container */
+            max-width: 350px; 
         }
 
         .btn {
-            padding: 15px 32px; /* SLEEKER BUTTONS */
+            padding: 15px 32px; 
             border-radius: 100px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.95rem; /* SHRUNK BUTTON TEXT */
+            font-size: 0.95rem; 
             text-align: center;
             transition: all 0.4s ease;
             position: relative;
@@ -230,16 +230,51 @@
             border-color: var(--accent-gold);
         }
 
+        /* --- Reduced Global Padding --- */
         section {
-            padding: 70px 20px;
+            padding: 50px 20px; /* Reduced from 80px */
             max-width: 1100px;
             margin: 0 auto;
             text-align: center;
         }
 
+        /* --- NEW: Info Cards Grid (Side-by-Side) --- */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* 2 columns on PC */
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto 30px;
+            padding: 0 20px;
+        }
+
+        @media (max-width: 768px) {
+            .info-grid {
+                grid-template-columns: 1fr; /* Stacks on mobile */
+                gap: 20px;
+            }
+        }
+
+        .info-card {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+            border: 1px solid rgba(18, 31, 45, 0.04);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .info-card .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
         .section-title {
             font-family: 'Playfair Display', serif;
-            font-size: 2rem; /* SHRUNK SECTION TITLES */
+            font-size: 2rem; 
             color: var(--text-dark);
             margin-bottom: 30px;
         }
@@ -249,18 +284,15 @@
         }
 
         .announcement-text {
-            font-size: 0.95rem; /* SHRUNK PARAGRAPH */
-            max-width: 700px;
-            margin: 0 auto 20px;
+            font-size: 0.95rem; 
             color: var(--muted-text);
+            margin-bottom: 15px;
         }
 
         .highlight-text {
-            font-size: 1.05rem; /* SHRUNK HIGHLIGHT */
+            font-size: 1.05rem; 
             font-weight: 600;
             color: var(--accent-gold);
-            max-width: 700px;
-            margin: 0 auto;
         }
 
         /* --- Committee List --- */
@@ -268,7 +300,7 @@
             display: grid;
             grid-template-columns: repeat(4, 1fr); 
             gap: 40px 20px;
-            margin-top: 40px;
+            margin-top: 20px; /* Reduced margin */
         }
 
         @media (max-width: 900px) {
@@ -295,14 +327,14 @@
         .member:hover { transform: translateY(-5px); }
 
         .member h3 {
-            font-size: 1rem; /* SHRUNK COMMITTEE NAMES */
+            font-size: 1rem; 
             color: var(--text-dark);
             margin-bottom: 6px;
             font-weight: 700;
             white-space: nowrap; 
         }
         .member p {
-            font-size: 0.75rem; /* SHRUNK COMMITTEE ROLES */
+            font-size: 0.75rem; 
             color: var(--accent-gold);
             text-transform: uppercase;
             letter-spacing: 1.5px;
@@ -310,19 +342,24 @@
             margin: 0;
         }
 
-        /* --- Footer --- */
+        /* --- NEW: Dark Footer / Support Section --- */
         footer {
-            padding: 50px 20px 30px; 
+            padding: 60px 20px 20px; 
             text-align: center;
-            background: #fff;
-            border-top: 1px solid rgba(0,0,0,0.03);
+            background-color: var(--text-dark); /* Dark Blue Background */
+            color: #fff;
+            margin-top: 40px;
         }
 
         .footer-title {
             font-family: 'Playfair Display', serif;
-            font-size: 1.5rem; /* SHRUNK FOOTER TITLE */
-            color: var(--text-dark);
+            font-size: 2rem; 
+            color: #fff;
             margin-bottom: 15px; 
+        }
+        
+        .footer-title span {
+            color: var(--accent-gold);
         }
 
         footer a {
@@ -330,36 +367,51 @@
         }
 
         #support p {
-            font-size: 0.95rem; /* SHRUNK QUERIES TEXT */
+            font-size: 0.95rem; 
+            color: rgba(255, 255, 255, 0.7); /* Light grey text */
         }
 
         .footer-contacts {
             display: flex;
             justify-content: center;
             gap: 40px;
-            margin: 20px 0; 
+            margin: 25px 0 30px; 
         }
 
         .contact-link {
-            color: var(--text-dark);
+            color: #fff; /* White links */
             font-weight: 600;
-            font-size: 0.95rem; /* SHRUNK CONTACT INFO */
+            font-size: 0.95rem; 
             transition: color 0.3s;
         }
-        .contact-link:hover { color: var(--accent-gold); }
+        
+        .contact-link:hover { 
+            color: var(--accent-gold); 
+        }
+
+        /* Copyright Bar */
+        .copyright {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
 
         @media (min-width: 501px) {
             .contact-link br { display: none; } 
         }
         @media (max-width: 500px) {
-            footer { padding: 30px 10px 20px; }
-            .footer-title { font-size: 1.4rem; margin-bottom: 5px; }
+            footer { padding: 50px 10px 20px; }
+            .footer-title { font-size: 1.6rem; margin-bottom: 5px; }
             #support > p { font-size: 0.85rem !important; margin-bottom: 15px !important; line-height: 1.4; }
             .footer-contacts { 
                 flex-wrap: nowrap; 
                 gap: 5px; 
                 justify-content: space-evenly;
-                margin: 15px 0 25px 0; 
+                margin: 20px 0; 
             }
             .contact-link { font-size: 0.75rem !important; line-height: 1.4; text-align: center; }
             .contact-link br { display: block; }
@@ -367,7 +419,6 @@
 
         /* --- ANIMATIONS --- */
         
-        /* 1. Instant Load Animation (For Top Nav and Hero) */
         .load-fade {
             opacity: 0;
             transform: translateY(20px);
@@ -379,7 +430,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* 2. Scroll Triggered Animation (For Sections below the fold) */
         .scroll-fade {
             opacity: 0;
             transform: translateY(40px);
@@ -425,22 +475,24 @@
         </div>
     </header>
 
-    <section id="announcements" class="scroll-fade">
-        <h2 class="section-title">Important <span>Updates</span></h2>
-        <p class="announcement-text">
-            <strong>Mess Registration & Cut Forms:</strong> These forms will be open daily from 6:00 AM to 9:40 PM. Please ensure you submit within this time frame.
-        </p>
-        <p class="highlight-text">
-            Mess Due Reminder: All students are requested to clear any outstanding mess dues as soon as possible. Your cooperation is greatly appreciated.
-        </p>
-    </section>
+    <div class="info-grid">
+        <div id="announcements" class="info-card scroll-fade">
+            <h2 class="section-title" style="margin-bottom: 15px;">Important <span>Updates</span></h2>
+            <p class="announcement-text">
+                <strong>Mess Registration & Cut Forms:</strong> These forms will be open daily from 6:00 AM to 9:40 PM. Please ensure you submit within this time frame.
+            </p>
+            <p class="highlight-text">
+                Mess Due Reminder: All students are requested to clear any outstanding mess dues as soon as possible. Your cooperation is greatly appreciated.
+            </p>
+        </div>
 
-    <section id="about" class="scroll-fade">
-        <h2 class="section-title">About <span>Us</span></h2>
-        <p class="announcement-text" style="max-width: 800px;">
-            The Islamic Cultural Centre (ICC) is a student organization at the College of Engineering Trivandrum (CET) dedicated to fostering a sense of community, spirituality, and service. We provide essential services like the student mess and organize cultural and educational events to enrich the lives of students on campus.
-        </p>
-    </section>
+        <div id="about" class="info-card scroll-fade delay-1">
+            <h2 class="section-title" style="margin-bottom: 15px;">About <span>Us</span></h2>
+            <p class="announcement-text" style="margin-bottom: 0;">
+                The Islamic Cultural Centre (ICC) is a student organization at the College of Engineering Trivandrum (CET) dedicated to fostering a sense of community, spirituality, and service. We provide essential services like the student mess and organize cultural and educational events to enrich the lives of students on campus.
+            </p>
+        </div>
+    </div>
 
     <section id="committee" class="scroll-fade">
         <h2 class="section-title">The <span>Committee</span></h2>
@@ -469,7 +521,7 @@
 
     <footer id="support" class="scroll-fade">
         <h2 class="footer-title">Need <span>Support?</span></h2>
-        <p style="color: var(--muted-text); font-size: 0.95rem; margin-bottom: 5px;">For Any Queries, Contact:<br><a href="mailto:iccmessofficial@gmail.com" style="color: var(--accent-gold);">iccmessofficial@gmail.com</a></p>
+        <p style="margin-bottom: 5px;">For Any Queries, Contact:<br><a href="mailto:iccmessofficial@gmail.com" style="color: var(--accent-gold);">iccmessofficial@gmail.com</a></p>
         
         <div class="footer-contacts">
             <a href="https://wa.me/919188242161" target="_blank" class="contact-link">Ashfak:<br>+91 9188242161</a>
@@ -477,13 +529,17 @@
             <a href="https://wa.me/919072171708" target="_blank" class="contact-link">Rafid:<br>+91 9072171708</a>
         </div>
         
-        <a href="http://www.icccet.com" target="_blank" style="color: var(--muted-text); font-weight: normal; font-size: 0.85rem;">www.icccet.com</a>
+        <a href="http://www.icccet.com" target="_blank" style="color: rgba(255, 255, 255, 0.5); font-size: 0.85rem;">www.icccet.com</a>
+
+        <div class="copyright">
+            &copy; 2026 Official ICC Committee. All Rights Reserved.
+        </div>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             
-            // --- 1. Scroll Animation Logic ---
+            // --- Scroll Animation Logic ---
             const observerOptions = {
                 root: null,
                 rootMargin: '0px',
@@ -504,7 +560,7 @@
             });
 
 
-            // --- 2. Quote Slideshow Logic ---
+            // --- Quote Slideshow Logic ---
             const quoteTextEl = document.getElementById('quoteText');
             const quoteAuthorEl = document.getElementById('quoteAuthor');
             const quotes = [
