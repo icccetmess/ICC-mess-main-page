@@ -270,24 +270,44 @@
             width: 100%;
             display: flex;
             justify-content: center;
+            /* Added alignment for desktop height matching */
+            align-items: center;
         }
 
         .about-image-content img {
+            /* Default Mobile Styles */
             width: 100%;
             max-width: 400px;
+            height: auto;
+            
+            /* Blending & Filtering */
             mix-blend-mode: multiply; 
             filter: sepia(30%) contrast(1.1); 
             opacity: 0.9;
+            
+            /* Smoothened Sides (Vignette Mask) */
+            -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 95%);
+            mask-image: radial-gradient(circle at center, black 40%, transparent 95%);
         }
 
+        /* Desktop specific styles for height matching */
         @media (min-width: 768px) {
             .about-layout {
                 flex-direction: row;
                 text-align: left;
-                align-items: center;
+                /* UPDATED: Stretch items to match height */
+                align-items: stretch; 
             }
             .about-layout .section-title {
                 text-align: left;
+            }
+
+            /* UPDATED Image styles for desktop height matching */
+            .about-image-content img {
+                width: auto;         /* Let width adjust automatically */
+                max-width: none;     /* Remove mobile constraint */
+                height: 100%;        /* Fill the stretched container height */
+                object-fit: contain; /* Ensure the sketch fits without distorting */
             }
         }
 
