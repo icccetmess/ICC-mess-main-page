@@ -259,55 +259,46 @@
             flex-direction: column;
             align-items: center;
             gap: 40px;
-            max-width: 900px;
+            max-width: 1000px; /* Slightly wider so it matches your requested image layout */
             margin: 0 auto;
         }
 
-        .about-text-content { flex: 1; }
+        .about-text-content { 
+            flex: 1; 
+            padding-right: 20px; /* Gives a little breathing room between text and sketch */
+        }
         
         .about-image-content {
             flex: 1;
             width: 100%;
             display: flex;
             justify-content: center;
-            /* Added alignment for desktop height matching */
             align-items: center;
         }
 
         .about-image-content img {
-            /* Default Mobile Styles */
             width: 100%;
-            max-width: 400px;
+            max-width: 550px; /* This guarantees the image will never stretch massively over your screen */
             height: auto;
             
-            /* Blending & Filtering */
+            /* Removes the white paper background and tints the sketch to match the website's off-white color perfectly */
             mix-blend-mode: multiply; 
-            filter: sepia(30%) contrast(1.1); 
-            opacity: 0.9;
+            filter: contrast(1.1); 
+            opacity: 0.85;
             
-            /* Smoothened Sides (Vignette Mask) */
-            -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 95%);
-            mask-image: radial-gradient(circle at center, black 40%, transparent 95%);
+            /* Clean vignette fade with strict rgba to prevent dark/black ring glitches */
+            -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 75%);
+            mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 75%);
         }
 
-        /* Desktop specific styles for height matching */
         @media (min-width: 768px) {
             .about-layout {
                 flex-direction: row;
                 text-align: left;
-                /* UPDATED: Stretch items to match height */
-                align-items: stretch; 
+                align-items: center; /* This perfectly centers the sketch vertically next to the text height */
             }
             .about-layout .section-title {
                 text-align: left;
-            }
-
-            /* UPDATED Image styles for desktop height matching */
-            .about-image-content img {
-                width: auto;         /* Let width adjust automatically */
-                max-width: none;     /* Remove mobile constraint */
-                height: 100%;        /* Fill the stretched container height */
-                object-fit: contain; /* Ensure the sketch fits without distorting */
             }
         }
 
@@ -438,7 +429,7 @@
                 </p>
             </div>
             <div class="about-image-content">
-                <img src="https://lh3.googleusercontent.com/u/0/d/1Estw1iD9QFl8KhRvRe2AfqomG_StWQkx" alt="ICC Sketch" class="sketch">
+               <img src="https://lh3.googleusercontent.com/u/0/d/1Estw1iD9QFl8KhRvRe2AfqomG_StWQkx" alt="ICC Sketch" class="sketch">
             </div>
         </div>
     </section>
