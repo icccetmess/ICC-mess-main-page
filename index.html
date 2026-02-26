@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="format-detection" content="telephone=no">
     <title>ICC Mess Hub</title>
-    <link rel="icon" href="https://lh3.googleusercontent.com/u/0/d/1CqVtnSdnA0m75lrVohhj6KvQya0dQHzL">
+    <link rel="icon" href="https://drive.google.com/uc?export=view&id=1Estw1iD9QFl8KhRvRe2AfqomG_StWQkx">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -259,13 +259,13 @@
             flex-direction: column;
             align-items: center;
             gap: 40px;
-            max-width: 1000px; /* Slightly wider so it matches your requested image layout */
+            max-width: 1000px; 
             margin: 0 auto;
         }
 
         .about-text-content { 
             flex: 1; 
-            padding-right: 20px; /* Gives a little breathing room between text and sketch */
+            padding-right: 20px; 
         }
         
         .about-image-content {
@@ -278,24 +278,28 @@
 
         .about-image-content img {
             width: 100%;
-            max-width: 550px; /* This guarantees the image will never stretch massively over your screen */
+            max-width: 550px; 
             height: auto;
             
-            /* Removes the white paper background and tints the sketch to match the website's off-white color perfectly */
+            /* Removes the white paper background and matches it perfectly to the site's background */
             mix-blend-mode: multiply; 
             filter: contrast(1.1); 
             opacity: 0.85;
             
-            /* Clean vignette fade with strict rgba to prevent dark/black ring glitches */
-            -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 75%);
-            mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 75%);
+            /* SQUARE/RECTANGULAR FADE: Fades out only at the edges (top, bottom, left, right) */
+            -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%), 
+                                linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
+            -webkit-mask-composite: source-in;
+            mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%), 
+                        linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
+            mask-composite: intersect;
         }
 
         @media (min-width: 768px) {
             .about-layout {
                 flex-direction: row;
                 text-align: left;
-                align-items: center; /* This perfectly centers the sketch vertically next to the text height */
+                align-items: center; 
             }
             .about-layout .section-title {
                 text-align: left;
@@ -379,7 +383,7 @@
 
     <nav class="top-nav load-fade">
         <a href="#" class="nav-brand">
-            <img src="https://lh3.googleusercontent.com/u/0/d/1CqVtnSdnA0m75lrVohhj6KvQya0dQHzL" alt="ICC Logo">
+            <img src="https://drive.google.com/uc?export=view&id=1Estw1iD9QFl8KhRvRe2AfqomG_StWQkx" alt="ICC Logo">
             <span>ICC</span>
         </a>
 
@@ -392,7 +396,7 @@
     </nav>
 
     <header class="hero load-fade delay-1">
-        <img src="https://lh3.googleusercontent.com/u/0/d/1CqVtnSdnA0m75lrVohhj6KvQya0dQHzL" alt="ICC Logo" class="logo">
+        <img src="https://drive.google.com/uc?export=view&id=1Estw1iD9QFl8KhRvRe2AfqomG_StWQkx" alt="ICC Logo" class="logo">
         
         <h1>ICC MESS</h1>
         
@@ -429,7 +433,7 @@
                 </p>
             </div>
             <div class="about-image-content">
-               <img src="https://lh3.googleusercontent.com/u/0/d/1Estw1iD9QFl8KhRvRe2AfqomG_StWQkx" alt="ICC Sketch" class="sketch">
+                <img src="https://drive.google.com/uc?export=view&id=1Estw1iD9QFl8KhRvRe2AfqomG_StWQkx" alt="ICC Sketch" class="sketch">
             </div>
         </div>
     </section>
