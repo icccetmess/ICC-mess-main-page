@@ -27,9 +27,7 @@
             -ms-overflow-style: none;  
         }
 
-        ::-webkit-scrollbar {
-            display: none;
-        }
+        ::-webkit-scrollbar { display: none; }
 
         body {
             background-color: var(--bg-light);
@@ -123,13 +121,9 @@
             width: 100%;
         }
 
-        .top-nav ul a.active {
-            color: var(--accent-gold);
-        }
-
-        .top-nav ul a.active::after {
-            width: 100%;
-        }
+        /* Active Navigation State (Scrollspy) */
+        .top-nav ul a.active { color: var(--accent-gold); }
+        .top-nav ul a.active::after { width: 100%; }
 
         @media (max-width: 768px) {
             .top-nav { padding: 15px 10px; }
@@ -149,32 +143,10 @@
             text-align: center;
             padding: 120px 20px 40px; 
             position: relative;
-            z-index: 1; 
         }
 
-        /* 1. The Local Sketch Background (Vignette Version) */
+        /* The Gold Glow Overlay */
         .hero::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            
-            /* MAKE SURE YOUR LOCAL FILE IS NAMED sketch.jpg */
-            background-image: url('sketch.jpg'); 
-            
-            background-size: cover;
-            background-position: center center;
-            opacity: 0.3; /* Adjusted to 0.3 so you can clearly see it! */
-            z-index: -2;
-            filter: sepia(100%) hue-rotate(5deg) saturate(200%);
-            pointer-events: none;
-            
-            /* The Magic Vignette */
-            -webkit-mask-image: radial-gradient(circle at center, black 35%, transparent 80%);
-            mask-image: radial-gradient(circle at center, black 35%, transparent 80%);
-        }
-
-        /* 2. The Gold Glow Overlay */
-        .hero::after {
             content: '';
             position: absolute;
             top: -20%; left: 50%;
@@ -266,52 +238,23 @@
         }
 
         section {
-            padding: 50px 20px; 
+            padding: 60px 20px; 
             max-width: 1100px;
             margin: 0 auto;
             text-align: center;
-        }
-
-        /* --- Info Cards Grid --- */
-        .info-grid {
-            display: grid;
-            grid-template-columns: 1fr; 
-            gap: 30px;
-            max-width: 800px; 
-            margin: 0 auto 30px;
-            padding: 0 20px;
-        }
-
-        .info-card {
-            background: #fff;
-            padding: 40px 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.03);
-            border: 1px solid rgba(18, 31, 45, 0.04);
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .info-card .section-title {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
         }
 
         .section-title {
             font-family: 'Playfair Display', serif;
             font-size: 2rem; 
             color: var(--text-dark);
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
-        .section-title span {
-            color: var(--accent-gold);
-        }
+        .section-title span { color: var(--accent-gold); }
 
         .announcement-text {
-            font-size: 0.95rem; 
+            font-size: 1rem; 
             color: var(--muted-text);
             margin-bottom: 15px;
         }
@@ -322,12 +265,52 @@
             color: var(--accent-gold);
         }
 
+        /* --- Custom About Section Layout --- */
+        .about-layout {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-text-content { flex: 1; }
+        
+        .about-image-content {
+            flex: 1;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .about-image-content img {
+            width: 100%;
+            max-width: 400px;
+            /* Multiply removes the white background from the sketch! */
+            mix-blend-mode: multiply; 
+            /* Subtle sepia keeps it warm and matching the gold */
+            filter: sepia(30%) contrast(1.1); 
+            opacity: 0.9;
+        }
+
+        @media (min-width: 768px) {
+            .about-layout {
+                flex-direction: row;
+                text-align: left;
+                align-items: center;
+            }
+            .about-layout .section-title {
+                text-align: left;
+            }
+        }
+
         /* --- Committee List --- */
         .committee-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr); 
             gap: 40px 20px;
-            margin-top: 20px; 
+            margin-top: 40px; 
         }
 
         @media (max-width: 900px) {
@@ -374,53 +357,43 @@
 
         /* --- TIGHT, SMALL FOOTER / SUPPORT SECTION --- */
         footer {
-            padding: 40px 20px 15px; 
+            padding: 60px 20px 25px; 
             text-align: center;
             background-color: var(--text-dark); 
             color: #fff;
-            margin-top: 40px;
+            margin-top: 60px;
         }
 
         .footer-title {
             font-family: 'Playfair Display', serif;
-            font-size: 1.3rem; 
+            font-size: 1.5rem; 
             color: #fff;
-            margin-bottom: 10px; 
+            margin-bottom: 15px; 
         }
         
-        .footer-title span {
-            color: var(--accent-gold);
-        }
+        .footer-title span { color: var(--accent-gold); }
+        footer a { text-decoration: none !important; }
 
-        footer a {
-            text-decoration: none !important;
-        }
-
-        #support p {
-            font-size: 0.85rem; 
-            color: rgba(255, 255, 255, 0.7); 
-        }
+        #support p { font-size: 0.9rem; color: rgba(255, 255, 255, 0.7); }
 
         .footer-contacts {
             display: flex;
             justify-content: center;
-            gap: 30px; 
-            margin: 15px 0 20px; 
+            gap: 40px; 
+            margin: 20px 0 25px; 
         }
 
         .contact-link {
             color: #fff; 
             font-weight: 600;
-            font-size: 0.85rem; 
+            font-size: 0.9rem; 
             transition: color 0.3s;
         }
         
-        .contact-link:hover { 
-            color: var(--accent-gold); 
-        }
+        .contact-link:hover { color: var(--accent-gold); }
 
         .copyright {
-            margin-top: 25px;
+            margin-top: 30px;
             padding-top: 15px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 0.65rem; 
@@ -433,18 +406,18 @@
             .contact-link br { display: none; } 
         }
         @media (max-width: 500px) {
-            footer { padding: 30px 10px 15px; } 
-            .footer-title { font-size: 1.1rem; margin-bottom: 5px; }
-            #support > p { font-size: 0.75rem !important; margin-bottom: 10px !important; line-height: 1.4; }
+            footer { padding: 40px 10px 15px; } 
+            .footer-title { font-size: 1.3rem; margin-bottom: 10px; }
+            #support > p { font-size: 0.8rem !important; margin-bottom: 15px !important; line-height: 1.4; }
             .footer-contacts { 
                 flex-wrap: nowrap; 
                 gap: 5px; 
                 justify-content: space-evenly;
                 margin: 15px 0; 
             }
-            .contact-link { font-size: 0.7rem !important; line-height: 1.4; text-align: center; }
+            .contact-link { font-size: 0.75rem !important; line-height: 1.4; text-align: center; }
             .contact-link br { display: block; }
-            .copyright { font-size: 0.6rem; margin-top: 20px; padding-top: 10px; }
+            .copyright { font-size: 0.6rem; margin-top: 25px; padding-top: 10px; }
         }
 
         /* --- ANIMATIONS --- */
@@ -504,9 +477,9 @@
         </div>
     </header>
 
-    <div class="info-grid">
-        <div id="announcements" class="info-card scroll-fade">
-            <h2 class="section-title" style="margin-bottom: 15px;">Important <span>Updates</span></h2>
+    <section id="announcements" class="scroll-fade">
+        <h2 class="section-title">Important <span>Updates</span></h2>
+        <div style="max-width: 800px; margin: 0 auto;">
             <p class="announcement-text">
                 <strong>Mess Registration & Cut Forms:</strong> These forms will be open daily from 6:00 AM to 9:40 PM. Please ensure you submit within this time frame.
             </p>
@@ -514,14 +487,21 @@
                 Mess Due Reminder: All students are requested to clear any outstanding mess dues as soon as possible. Your cooperation is greatly appreciated.
             </p>
         </div>
+    </section>
 
-        <div id="about" class="info-card scroll-fade delay-1">
-            <h2 class="section-title" style="margin-bottom: 15px;">About <span>Us</span></h2>
-            <p class="announcement-text" style="margin-bottom: 0;">
-                The Islamic Cultural Centre (ICC) is a student organization at the College of Engineering Trivandrum (CET) dedicated to fostering a sense of community, spirituality, and service. We provide essential services like the student mess and organize cultural and educational events to enrich the lives of students on campus.
-            </p>
+    <section id="about" class="scroll-fade">
+        <div class="about-layout">
+            <div class="about-text-content">
+                <h2 class="section-title">About <span>Us</span></h2>
+                <p class="announcement-text" style="margin-bottom: 0;">
+                    The Islamic Cultural Centre (ICC) is a student organization at the College of Engineering Trivandrum (CET) dedicated to fostering a sense of community, spirituality, and service. We provide essential services like the student mess and organize cultural and educational events to enrich the lives of students on campus.
+                </p>
+            </div>
+            <div class="about-image-content">
+                <img src="sketch.jpg" alt="ICC Building Sketch">
+            </div>
         </div>
-    </div>
+    </section>
 
     <section id="committee" class="scroll-fade">
         <h2 class="section-title">The <span>Committee</span></h2>
