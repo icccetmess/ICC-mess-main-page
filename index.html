@@ -78,9 +78,7 @@
             transition: color 0.3s;
         }
 
-        .nav-brand:hover span {
-            color: var(--accent-gold);
-        }
+        .nav-brand:hover span { color: var(--accent-gold); }
 
         .top-nav ul {
             display: flex;
@@ -101,10 +99,7 @@
             transition: color 0.3s;
         }
 
-        .top-nav ul a:hover {
-            color: var(--accent-gold);
-        }
-
+        .top-nav ul a:hover { color: var(--accent-gold); }
         .top-nav ul a::after {
             content: '';
             position: absolute;
@@ -115,13 +110,7 @@
             background-color: var(--accent-gold);
             transition: width 0.3s ease-in-out;
         }
-
-        .top-nav ul a:hover::after,
-        .top-nav ul a:focus::after {
-            width: 100%;
-        }
-
-        /* Active Navigation State (Scrollspy) */
+        .top-nav ul a:hover::after, .top-nav ul a:focus::after { width: 100%; }
         .top-nav ul a.active { color: var(--accent-gold); }
         .top-nav ul a.active::after { width: 100%; }
 
@@ -145,7 +134,6 @@
             position: relative;
         }
 
-        /* The Gold Glow Overlay */
         .hero::before {
             content: '';
             position: absolute;
@@ -287,9 +275,7 @@
         .about-image-content img {
             width: 100%;
             max-width: 400px;
-            /* Multiply removes the white background from the sketch! */
             mix-blend-mode: multiply; 
-            /* Subtle sepia keeps it warm and matching the gold */
             filter: sepia(30%) contrast(1.1); 
             opacity: 0.9;
         }
@@ -336,26 +322,10 @@
         }
         
         .member:hover { transform: translateY(-5px); }
+        .member h3 { font-size: 1rem; color: var(--text-dark); margin-bottom: 6px; font-weight: 700; white-space: nowrap; }
+        .member p { font-size: 0.75rem; color: var(--accent-gold); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; margin: 0; margin-top: auto; }
 
-        .member h3 {
-            font-size: 1rem; 
-            color: var(--text-dark);
-            margin-bottom: 6px;
-            font-weight: 700;
-            white-space: nowrap; 
-        }
-        
-        .member p {
-            font-size: 0.75rem; 
-            color: var(--accent-gold);
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-weight: 700;
-            margin: 0;
-            margin-top: auto; 
-        }
-
-        /* --- TIGHT, SMALL FOOTER / SUPPORT SECTION --- */
+        /* --- Footer --- */
         footer {
             padding: 60px 20px 25px; 
             text-align: center;
@@ -364,84 +334,34 @@
             margin-top: 60px;
         }
 
-        .footer-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem; 
-            color: #fff;
-            margin-bottom: 15px; 
-        }
-        
+        .footer-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #fff; margin-bottom: 15px; }
         .footer-title span { color: var(--accent-gold); }
         footer a { text-decoration: none !important; }
-
         #support p { font-size: 0.9rem; color: rgba(255, 255, 255, 0.7); }
 
-        .footer-contacts {
-            display: flex;
-            justify-content: center;
-            gap: 40px; 
-            margin: 20px 0 25px; 
-        }
-
-        .contact-link {
-            color: #fff; 
-            font-weight: 600;
-            font-size: 0.9rem; 
-            transition: color 0.3s;
-        }
-        
+        .footer-contacts { display: flex; justify-content: center; gap: 40px; margin: 20px 0 25px; }
+        .contact-link { color: #fff; font-weight: 600; font-size: 0.9rem; transition: color 0.3s; }
         .contact-link:hover { color: var(--accent-gold); }
 
-        .copyright {
-            margin-top: 30px;
-            padding-top: 15px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.65rem; 
-            color: rgba(255, 255, 255, 0.4);
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
+        .copyright { margin-top: 30px; padding-top: 15px; border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 0.65rem; color: rgba(255, 255, 255, 0.4); letter-spacing: 1px; text-transform: uppercase; }
 
-        @media (min-width: 501px) {
-            .contact-link br { display: none; } 
-        }
+        @media (min-width: 501px) { .contact-link br { display: none; } }
         @media (max-width: 500px) {
             footer { padding: 40px 10px 15px; } 
             .footer-title { font-size: 1.3rem; margin-bottom: 10px; }
             #support > p { font-size: 0.8rem !important; margin-bottom: 15px !important; line-height: 1.4; }
-            .footer-contacts { 
-                flex-wrap: nowrap; 
-                gap: 5px; 
-                justify-content: space-evenly;
-                margin: 15px 0; 
-            }
+            .footer-contacts { flex-wrap: nowrap; gap: 5px; justify-content: space-evenly; margin: 15px 0; }
             .contact-link { font-size: 0.75rem !important; line-height: 1.4; text-align: center; }
             .contact-link br { display: block; }
             .copyright { font-size: 0.6rem; margin-top: 25px; padding-top: 10px; }
         }
 
         /* --- ANIMATIONS --- */
-        .load-fade {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
+        .load-fade { opacity: 0; transform: translateY(20px); animation: fadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
         .delay-1 { animation-delay: 0.2s; }
-        
-        @keyframes fadeIn {
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .scroll-fade {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        
-        .scroll-fade.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
+        .scroll-fade { opacity: 0; transform: translateY(40px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .scroll-fade.visible { opacity: 1; transform: translateY(0); }
     </style>
 </head>
 <body>
@@ -498,7 +418,7 @@
                 </p>
             </div>
             <div class="about-image-content">
-                <img src="sketch.jpg" alt="ICC Building Sketch">
+                <img src="https://drive.google.com/uc?export=view&id=1Estw1iD9QFl8KhRvRe2AfqomG_StWQkx" alt="ICC Building Sketch">
             </div>
         </div>
     </section>
@@ -510,17 +430,14 @@
             <div class="member"><h3>Shahad Shameem V.P</h3><p>G-Sec</p></div>
             <div class="member"><h3>Mishal Abdul Jabbar</h3><p>J-Sec</p></div>
             <div class="member"><h3>Faris P</h3><p>Dawah Sec</p></div>
-            
             <div class="member"><h3>Ijas Hassan CA</h3><p>Treasurer</p></div>
             <div class="member"><h3>Mohammed Ashfak UP</h3><p>Mess MD</p></div>
             <div class="member"><h3>Muhammed Rajab C</h3><p>Mess MD</p></div>
             <div class="member"><h3>Muhammed Rafid</h3><p>Mess MD</p></div>
-            
             <div class="member"><h3>Hisham Basheer</h3><p>Programme Sec</p></div>
             <div class="member"><h3>Shameem Swalih P.V</h3><p>Programme Sec</p></div>
             <div class="member"><h3>Mohammed Nisham</h3><p>Maintenance Sec</p></div>
             <div class="member"><h3>Mohammed Jabin</h3><p>Maintenance Sec</p></div>
-            
             <div class="member"><h3>Fazalul Abid</h3><p>SQUIF</p></div>
             <div class="member"><h3>Muhammed Afsal</h3><p>SQUIF</p></div>
             <div class="member"><h3>Anshil</h3><p>IT Sec</p></div>
